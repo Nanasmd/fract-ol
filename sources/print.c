@@ -6,11 +6,12 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:25:33 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 17:48:08 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:27:50 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include "../libft/includes/libft.h"
 
 void	print_help(void)
 {

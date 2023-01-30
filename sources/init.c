@@ -6,12 +6,14 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:19:38 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 17:42:40 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:26:36 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include "../includes/error_message.h"
+#include "../libft/includes/libft.h"
+#include "../minilibx-linux/mlx.h"
 
 t_image		*init_image(void *mlx)
 {

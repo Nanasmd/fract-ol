@@ -5,15 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/24 13:18:47 by nasamadi          #+#    #+#              #
-#    Updated: 2023/01/24 13:18:51 by nasamadi         ###   ########.fr        #
+#    Created: 2023/01/27 15:39:29 by nasamadi          #+#    #+#              #
+#    Updated: 2023/01/27 16:46:32 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 FLAGS = -Wall -Werror -Wextra -O3 -c
-FSANITIZE	:= -fsanitize=address -g3
 INCLUDES = -I$(HEADERS_DIRECTORY)
 HEADERS_LIST = \
 	libft.h\
@@ -134,7 +133,7 @@ $(OBJECTS_DIRECTORY):
 	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
-	@$(CC) $(FLAGS) $(FSANITIZE) $(INCLUDES) $< -o $@
+	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
 	@echo "$(GREEN).$(RESET)\c"
 
 clean:

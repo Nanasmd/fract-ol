@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   key_linux.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:46:49 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 16:59:08 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:52:16 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_LINUX_H
+# include <mlx.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include "fractol.h"
+# include <stdio.h>
+# include <stdlib.h>
 
-//# include <X11/keysymdef.h>
-//# include <X11/X.h>
+#ifndef KEY_LINUX_H
 
 # define KEY_LINUX_H
 

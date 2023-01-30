@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:25:10 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 18:25:05 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:05:05 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include "../includes/error_message.h"
+#include "../libft/includes/libft.h"
+#include "../minilibx-linux/mlx.h"
+
 
 static int			(*get_formula(char *name)) (t_fractol *fractol)
 {
@@ -57,8 +60,10 @@ static t_fractol	*init_fractol(char *name, void *mlx)
 		terminate(ERR_FRACTAL_NAME);
 	fractol->is_help = false;
 	mlx_hook(fractol->window, 2, 0, key_press, fractol);
+	mlx_key_hook(fractol->window, key_press, fractol);
+	// mlx_key_hook(fractol->window, zoom, fractol);
 	mlx_hook(fractol->window, 17, 0, close, fractol);
-	mlx_hook(fractol->window, 4, 0, zoom, fractol);
+	mlx_mouse_hook(fractol->window, zoom, fractol);
 	if (ft_strequ(name, "Julia"))
 		mlx_hook(fractol->window, 6, 0, julia_motion, fractol);
 	return (fractol);

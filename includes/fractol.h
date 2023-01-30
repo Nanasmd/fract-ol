@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:03:44 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 17:02:08 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:11:26 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "../libft/includes/libft.h"
 # include "key_linux.h"
 # include <math.h>
+# include <mlx.h>
 # include "../minilibx-linux/mlx.h"
 # include <stdint.h>
 

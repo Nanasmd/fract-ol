@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:21:02 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 17:43:22 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:27:14 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "../includes/error_message.h"
 #include "../includes/color.h"
 #include <pthread.h>
+#include "../libft/includes/libft.h"
+#include "../minilibx-linux/mlx.h"
 
 static void	put_pixel(t_fractol *fractol, int x, int y, t_color color)
 {

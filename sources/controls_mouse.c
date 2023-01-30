@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls_mouse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:20:49 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/26 17:45:07 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:56:07 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int				zoom(int button, int x, int y, t_fractol *fractol)
 		fractol->max.re = interpolate(mouse.re, fractol->max.re, interpolation);
 		fractol->max.im = interpolate(mouse.im, fractol->max.im, interpolation);
 		draw_fractal(fractol);
+		
 	}
+	printf("max re %f| min re %f\n", fractol -> max.re, fractol -> min.re);
 	return (0);
 }
 
