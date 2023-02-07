@@ -6,7 +6,7 @@
 #    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 15:50:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/01/27 15:56:46 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/01/31 17:15:13 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= fractol
 
 # Compiler
 CC		= gcc
-CFLAGS	= -Werror -Wextra -Wall
+CFLAGS	= -Werror -Wextra -Wall -g3
 
 # Minilibx
 MLX_PATH	= ./minilibx-linux/

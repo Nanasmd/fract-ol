@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:21:02 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/27 14:27:14 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:15:38 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ static void	put_pixel(t_fractol *fractol, int x, int y, t_color color)
 
 static void	*draw_fractal_part(void *arg)
 {
-    t_fractol *fractol = (t_fractol *)arg;
+	t_fractol	*fractol;
 	int			y;
 	int			x;
 	t_color		color;
 
+	fractol = (t_fractol *)arg;
 	y = fractol->start_line;
 	while (y < fractol->finish_line)
 	{
@@ -75,28 +76,23 @@ static void	*draw_fractal_part(void *arg)
 	return (NULL);
 }
 
-void		draw_fractal(t_fractol *fractol)
+void	draw_fractal(t_fractol *fractol)
 {
 	pthread_t	threads[THREADS];
 	t_fractol	fractols[THREADS];
 	int			i;
 
 	fractol->factor = init_complex(
-		(fractol->max.re - fractol->min.re) / (WIDTH - 1),
-		(fractol->max.im - fractol->min.im) / (HEIGHT - 1));
+			(fractol->max.re - fractol->min.re) / (WIDTH - 1),
+			(fractol->max.im - fractol->min.im) / (HEIGHT - 1));
 	i = 0;
 	while (i < THREADS)
 	{
 		fractols[i] = *fractol;
 		fractols[i].start_line = i * (HEIGHT / THREADS);
 		fractols[i].finish_line = (i + 1) * (HEIGHT / THREADS);
-		if (pthread_create(&threads[i], NULL, &draw_fractal_part, (void *)&fractols[i]))
-		//corr 2 :if (pthread_create(&threads[i], NULL,
-		//	draw_fractal_part, (void *)&fractols[i]))
-		//	terminate(ERR_TREADS);
-		//corr : if (pthread_create(&threads[i], NULL, (void *(*)(void *))draw_fractal_part, (void *)&fractols[i]))
-		//if (pthread_create(&threads[i], NULL,
-		//	(void *(*)(void *))draw_fractal_part, (void *)&fractols[i]))
+		if (pthread_create(&threads[i], NULL,
+				&draw_fractal_part, (void *)&fractols[i]))
 			terminate(ERR_TREADS);
 		i++;
 	}
@@ -109,7 +105,7 @@ void		draw_fractal(t_fractol *fractol)
 		"H - Help");
 }
 
-void		draw_help(t_fractol *fractol)
+void	draw_help(t_fractol *fractol)
 {
 	ft_bzero(fractol->image->data_addr,
 		WIDTH * HEIGHT * (fractol->image->bits_per_pixel / 8));

@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:03:44 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/30 12:11:26 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:14:46 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,8 @@ int					close(void *param);
 int					key_press(int key, t_fractol *fractol);
 
 int					zoom(int button, int x, int y, t_fractol *fractol);
+
+//int					change_max_iteration(int key, t_fractol *fractol);
 
 int					julia_motion(int x, int y, t_fractol *fractol);
 

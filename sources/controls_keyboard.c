@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:20:15 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/30 13:05:18 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:02:16 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	move(int key, t_fractol *fractol)
 	t_complex	delta;
 
 	delta = init_complex(FT_ABS(fractol->max.re - fractol->min.re),
-		FT_ABS(fractol->max.im - fractol->min.im));
+			FT_ABS(fractol->max.im - fractol->min.im));
 	if (key == ARROW_LEFT)
 	{
 		fractol->min.re -= delta.re * 0.05;
@@ -51,43 +51,7 @@ static void	move(int key, t_fractol *fractol)
 	draw_fractal(fractol);
 }
 
-static double	interpolate(double start, double end, double interpolation)
-{
-	return (start + ((end - start) * interpolation));
-}
-
 static void	change_max_iteration(int key, t_fractol *fractol)
-{
-	t_complex	mouse;
-	double		interpolation;
-	double		zoom;
-	int x = 0;
-	int y = 0;
-
-	if (!fractol->is_help
-		&& (key == MAIN_PAD_PLUS || key == NUM_PAD_PLUS))
-	{
-		mouse = init_complex(
-			(double)x / (WIDTH / (fractol->max.re - fractol->min.re))
-				+ fractol->min.re,
-			(double)y / (HEIGHT / (fractol->max.im - fractol->min.im))
-				* -1 + fractol->max.im);
-		if (key == MAIN_PAD_MINUS || key == NUM_PAD_MINUS)
-			zoom = 0.80;
-		else
-			zoom = 1.20;
-		interpolation = 1.0 / zoom;
-		fractol->min.re = interpolate(mouse.re, fractol->min.re, interpolation);
-		fractol->min.im = interpolate(mouse.im, fractol->min.im, interpolation);
-		fractol->max.re = interpolate(mouse.re, fractol->max.re, interpolation);
-		fractol->max.im = interpolate(mouse.im, fractol->max.im, interpolation);
-		draw_fractal(fractol);
-		
-	}
-	printf("max re %f| min re %f\n", fractol -> max.re, fractol -> min.re);
-}
-
-/*static void	change_max_iteration(int key, t_fractol *fractol)
 {
 	if (key == MAIN_PAD_PLUS || key == NUM_PAD_PLUS)
 	{
@@ -104,7 +68,7 @@ static void	change_max_iteration(int key, t_fractol *fractol)
 			fractol->max_iteration -= 1;
 	}
 	draw_fractal(fractol);
-}*/
+}
 
 static void	change_color_shift(t_fractol *fractol)
 {
@@ -112,10 +76,13 @@ static void	change_color_shift(t_fractol *fractol)
 	draw_fractal(fractol);
 }
 
-int			key_press(int key, t_fractol *fractol)
+int	key_press(int key, t_fractol *fractol)
 {
-	if (key == 65307)
+	if (key == MAIN_PAD_ESC)
+	{
 		mlx_loop_end(fractol->mlx);
+		//free image, window, mlx
+	}
 	else if (key == MAIN_PAD_H)
 		help(fractol);
 	else if (!fractol->is_help)
@@ -126,16 +93,15 @@ int			key_press(int key, t_fractol *fractol)
 			draw_fractal(fractol);
 		}
 		else if (key == MAIN_PAD_MINUS || key == NUM_PAD_MINUS
-				|| key == MAIN_PAD_PLUS || key == NUM_PAD_PLUS)
+			|| key == MAIN_PAD_PLUS || key == NUM_PAD_PLUS)
 			change_max_iteration(key, fractol);
 		else if (key == ARROW_LEFT || key == ARROW_RIGHT
-				|| key == ARROW_UP || key == ARROW_DOWN)
+			|| key == ARROW_UP || key == ARROW_DOWN)
 			move(key, fractol);
 		else if (key == MAIN_PAD_C)
 			change_color_shift(fractol);
-		else if (key == MAIN_PAD_SPACE)
+		else if (key == 32)
 			fractol->is_julia_fixed = !fractol->is_julia_fixed;
 	}
-	// change_max_iteration(key, fractol);
 	return (0);
 }
