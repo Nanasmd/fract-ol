@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:05:54 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:05:55 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:21:58 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (src[i] && i < len)

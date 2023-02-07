@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:05:32 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:05:34 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:56:25 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
+	size_t	j;
 
 	i = ft_strlen(s1);
-	while (n-- && (s1[i] = *s2++))
-		i++;
-	s1[i] = '\0';
+	j = 0;
+	while (j < n && s2[j])
+	{
+		s1[i + j] = s2[j];
+		j++;
+	}
+	s1[i + j] = '\0';
 	return (s1);
 }

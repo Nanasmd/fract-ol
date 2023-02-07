@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:55:34 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:55:36 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:41:16 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr(int n)
 {
-	unsigned num;
+	unsigned int	num;
 
 	if (n < 0)
 		ft_putchar('-');

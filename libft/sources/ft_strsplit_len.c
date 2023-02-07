@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:00:03 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:00:05 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:20:25 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ size_t	ft_strsplit_len(char **strsplit)
 
 	size = 0;
 	if (strsplit)
+	{
 		while (*strsplit)
 		{
 			size++;
 			strsplit++;
 		}
+	}
 	return (size);
 }

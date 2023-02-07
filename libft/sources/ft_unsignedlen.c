@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:03:44 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:03:48 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:03:53 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ size_t	ft_unsignedlen(uintmax_t number, unsigned int base)
 	if (base >= 2)
 	{
 		size = 1;
-		while ((number /= base))
+		number = number / base;
+		while (number)
 			size++;
 	}
 	else

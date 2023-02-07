@@ -6,33 +6,34 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:08:42 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:08:45 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:33:02 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	is_clearable(char c)
+{
+	return (c == ' ' || c == '\n' || c == '\t'
+		|| c == '\v' || c == '\f' || c == '\r');
+}
+
 char	*ft_strtrim(char const *s)
 {
-	char	*result;
-	size_t	i;
-	size_t	start;
-	size_t	finish;
+	size_t			start;
+	size_t			end;
+	size_t			substr_len;
 
 	if (!s)
 		return (NULL);
-	i = 0;
+	if (*s == '\0')
+		return (ft_strnew(0));
 	start = 0;
-	finish = ft_strlen(s);
-	while (ft_isblank(s[start]) || s[start] == '\n')
+	end = ft_strlen(s) - 1;
+	while (is_clearable(s[start]) && s[start])
 		start++;
-	while (finish && (ft_isblank(s[finish - 1]) || s[finish - 1] == '\n'))
-		finish--;
-	if ((result = ft_strnew((finish > start) ? (finish - start) : 0)))
-	{
-		while (start < finish)
-			result[i++] = s[start++];
-		result[i] = '\0';
-	}
-	return (result);
+	while (is_clearable(s[end]) && s[end] && end > start)
+		end--;
+	substr_len = end + 1 - start;
+	return (ft_strsub(s, start, substr_len));
 }

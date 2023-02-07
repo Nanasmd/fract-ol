@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:51:06 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:51:08 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:43:24 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ t_bool	ft_isnum(char *str, int base)
 		i++;
 		digits++;
 	}
-	return ((!str[i] && digits) ? true : false);
+	return (!str[i] && digits);
 }

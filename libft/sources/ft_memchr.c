@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:53:48 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:53:49 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:15:55 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char *ptr;
-	unsigned char sym;
+	unsigned char	*ptr;
+	unsigned char	sym;
 
 	ptr = (unsigned char *)s;
 	sym = (unsigned char)c;

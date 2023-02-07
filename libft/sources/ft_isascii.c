@@ -6,11 +6,11 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:50:11 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:50:13 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:43:06 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }

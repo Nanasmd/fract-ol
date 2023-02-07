@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:52:23 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:52:25 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:17:13 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstaddback(t_list **alst, t_list *new)
 {
-	t_list *ptr;
+	t_list	*ptr;
 
 	if (alst && *alst)
 	{

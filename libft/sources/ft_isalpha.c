@@ -6,13 +6,13 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:50:02 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:50:06 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:22:16 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	return (ft_islower(c) || ft_isupper(c));
 }

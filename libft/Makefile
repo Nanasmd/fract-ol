@@ -6,7 +6,7 @@
 #    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 15:39:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/01/27 16:46:32 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/02/06 15:01:30 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,6 @@ SOURCES_LIST = \
 	ft_strsub.c\
 	ft_strjoin.c\
 	ft_strtrim.c\
-	ft_strsplit.c\
 	ft_itoa.c\
 	ft_putchar.c\
 	ft_putstr.c\
@@ -78,7 +77,6 @@ SOURCES_LIST = \
 	ft_lstdel.c\
 	ft_lstadd.c\
 	ft_lstiter.c\
-	ft_lstmap.c\
 	ft_isupper.c\
 	ft_islower.c\
 	ft_isspace.c\
@@ -91,7 +89,6 @@ SOURCES_LIST = \
 	ft_strrev.c\
 	ft_strchrs.c\
 	ft_strsubchr.c\
-	get_next_line.c\
 	ft_percent.c\
 	ft_arrindex.c\
 	ft_isdigit_base.c\

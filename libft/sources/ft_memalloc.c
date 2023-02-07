@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:53:31 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:53:32 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:29:57 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *ptr;
+	unsigned char	*mem;
 
-	if ((ptr = malloc(size)))
-		ft_bzero(ptr, size);
-	return (ptr);
+	mem = (void *)malloc(size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, size);
+	return ((void *)mem);
 }

@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:57:21 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:57:22 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:41:00 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@ char	*ft_strndup(const char *s1, size_t n)
 	char	*result;
 
 	len = ft_strnlen(s1, n);
-	if ((result = ft_strnew(len)))
-	{
-		i = 0;
-		while (i < len)
-		{
-			result[i] = s1[i];
-			i++;
-		}
-		result[i] = '\0';
-	}
+	result = ft_strnew(len);
+	if (!result)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		result[i] = s1[i];
+	result[i] = '\0';
 	return (result);
 }

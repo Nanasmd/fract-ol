@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:53:19 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:53:21 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:00:30 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list *res;
+	t_list	*res;
 
-	if ((res = (t_list *)ft_memalloc(sizeof(t_list))))
+	res = (t_list *)ft_memalloc(sizeof(t_list));
+	if (res)
 	{
 		if (!content)
 		{
@@ -25,7 +26,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		}
 		else
 		{
-			if (!(res->content = ft_memalloc(content_size)))
+			res->content = ft_memalloc(content_size);
+			if (!res->content)
 			{
 				free(res);
 				return (NULL);

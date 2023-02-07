@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:52:57 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:53:04 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:10:27 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	if (f)
+	{
 		while (lst)
 		{
 			f(lst);
 			lst = lst->next;
 		}
+	}
 }

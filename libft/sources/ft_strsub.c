@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:00:24 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:00:25 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:02:06 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s || start + len > ft_strlen(s))
 		return (NULL);
-	if ((result = ft_strnew(len)))
+	result = ft_strnew(len);
+	if (result)
 	{
 		while (len)
 		{

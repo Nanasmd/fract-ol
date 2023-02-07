@@ -6,13 +6,13 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:48:54 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:49:29 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:18:31 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int32_t		ft_atoi32(const char *str)
+int32_t	ft_atoi32(const char *str)
 {
 	unsigned long	result;
 	unsigned long	border;
@@ -31,10 +31,10 @@ int32_t		ft_atoi32(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		if ((result > border || (result == border && (str[i] - '0') > 7))
-															&& sign == 1)
+			&& sign == 1)
 			return (-1);
 		else if ((result > border || (result == border && (str[i] - '0') > 8))
-																&& sign == -1)
+			&& sign == -1)
 			return (0);
 		result = result * 10 + (str[i++] - '0');
 	}

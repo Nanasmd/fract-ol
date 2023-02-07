@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:12:09 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:12:10 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:09:24 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*result;
 	size_t	i;
 
-	result = NULL;
-	if (s && f && (result = ft_strnew(ft_strlen(s))))
+	if (!s || !f)
+		return (NULL);
+	result = ft_strnew(ft_strlen(s));
+	if (!result)
+		return (NULL);
+	if (s && f && (result))
 	{
 		i = 0;
 		while (s[i])

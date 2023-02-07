@@ -6,11 +6,11 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:50:58 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 12:50:59 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:12:16 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_islower(int c)
+int	ft_islower(int c)
 {
 	return (c >= 'a' && c <= 'z');
 }

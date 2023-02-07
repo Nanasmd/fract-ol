@@ -6,13 +6,16 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:10:06 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:10:08 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:34:22 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	return (ft_islower(c) ? (c - 'a' + 'A') : c);
+	if (ft_islower(c))
+		return (c - 'a' + 'A');
+	else
+		return (c);
 }

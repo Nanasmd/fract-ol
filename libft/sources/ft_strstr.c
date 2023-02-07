@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:00:13 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:00:16 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:21:28 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	size_t	j;
 
 	h = (char *)haystack;
-	if (!(needle_len = ft_strlen(needle)))
+	needle_len = ft_strlen(needle);
+	if (!needle_len)
 		return (h);
 	i = 0;
 	while (h[i])

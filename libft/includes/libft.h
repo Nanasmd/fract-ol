@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:18:24 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/24 13:18:26 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:01:20 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <inttypes.h>
 # include <stdlib.h>
+# include <limits.h>
 
 # define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
 # define FT_MAX(A, B) (((A) > (B)) ? (A) : (B))
@@ -35,13 +36,25 @@
 # define FT_CHAR_MAX	((char)(FT_UCHAR_MAX >> 1))
 # define FT_CHAR_MIN	((char)(~FT_CHAR_MAX))
 
-typedef enum
+/*# define FT_ULONG_MAX_HALF	(~0UL >> 1)
+# define FT_LONG_MAX		FT_ULONG_MAX_HALF
+# define FT_LONG_MIN		(~FT_LONG_MAX)
+
+# define FT_UINT_MAX_HALF	(~0U >> 1)
+# define FT_INT_MAX			FT_UINT_MAX_HALF
+# define FT_INT_MIN			(~FT_INT_MAX)
+
+# define FT_UCHAR_MAX_HALF	(~0U >> 1)
+# define FT_CHAR_MAX		FT_UCHAR_MAX_HALF
+# define FT_CHAR_MIN		(~FT_CHAR_MAX)*/
+
+typedef enum a_bool
 {
 	false,
 	true
 }	t_bool;
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	size_t			content_size;
@@ -83,7 +96,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 
 char				*ft_strnstr(const char *haystack,
-								const char *needle, size_t len);
+						const char *needle, size_t len);
 
 int					ft_strcmp(const char *s1, const char *s2);
 
@@ -135,7 +148,7 @@ char				*ft_strtrim(char const *s);
 
 char				**ft_strsplit(char const *s, char c);
 
-char				*ft_itoa(int n);
+char				*ft_itoa(long int n);
 
 void				ft_putchar(char c);
 
