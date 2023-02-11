@@ -6,7 +6,7 @@
 #    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 15:50:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/01/31 17:15:13 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/02/10 11:25:13 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,14 @@ $(NAME): $(OBJS)
 
 bonus: all
 
+norm:
+	norminette $(INC)
+	@printf "\n$(G)=== No norminette errors found in $(INC) ===$(RC)\n\n"
+	norminette $(SRC_PATH)
+	@printf "\n$(G)=== No norminette errors found in $(SRC_PATH) ===$(RC)\n\n"
+	norminette $(LIBFT_PATH)
+	@printf "\n$(G)=== No norminette errors found in $(LIBFT_PATH) ===$(RC)\n\n"
+
 clean:
 	@echo "Removing .o object files..."
 	@rm -rf $(OBJ_PATH)
@@ -100,4 +108,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all re clean fclean
+.PHONY: all bonus norm re clean fclean
