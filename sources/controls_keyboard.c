@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:20:15 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/06 18:02:16 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:05:15 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,7 @@ static void	change_color_shift(t_fractol *fractol)
 int	key_press(int key, t_fractol *fractol)
 {
 	if (key == MAIN_PAD_ESC)
-	{
 		mlx_loop_end(fractol->mlx);
-		//free image, window, mlx
-	}
 	else if (key == MAIN_PAD_H)
 		help(fractol);
 	else if (!fractol->is_help)

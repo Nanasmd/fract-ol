@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:21:02 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/02 14:15:38 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/08 12:32:21 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,6 @@ static void	put_pixel(t_fractol *fractol, int x, int y, t_color color)
 	fractol->image->data_addr[++i] = color.channel[1];
 	fractol->image->data_addr[++i] = color.channel[0];
 }
-
-/*static void	draw_fractal_part(t_fractol *fractol)
-{
-	int			y;
-	int			x;
-	t_color		color;
-
-	y = fractol->start_line;
-	while (y < fractol->finish_line)
-	{
-		fractol->c.im = fractol->max.im - y * fractol->factor.im;
-		x = 0;
-		while (x < WIDTH)
-		{
-			fractol->c.re = fractol->min.re + x * fractol->factor.re;
-			color = get_color(fractol->formula(fractol), fractol);
-			put_pixel(fractol, x, y, color);
-			x++;
-		}
-		y++;
-	}
-}*/
 
 static void	*draw_fractal_part(void *arg)
 {

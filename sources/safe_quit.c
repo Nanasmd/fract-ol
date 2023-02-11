@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controls_utils.c                                   :+:      :+:    :+:   */
+/*   safe_quit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 13:20:56 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/11 20:52:56 by nasamadi         ###   ########.fr       */
+/*   Created: 2023/02/08 08:29:54 by nasamadi          #+#    #+#             */
+/*   Updated: 2023/02/08 08:30:52 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <fractol.h>
+#include "fractol.h"
 
-int    ft_close_win(t_fractol *fractol)
+int	safe_quit(void)
 {
-	mlx_loop_end(fractol->mlx);
-	if (fractol->image->image)
+	if (info()->img_ptr)
 	{
-		mlx_destroy_image(fractol->mlx, fractol->image->image);
-		free_image(fractol->image);
+		mlx_destroy_image(info()->mlx_ptr, info()->img_ptr);
+		info()->img_ptr = NULL;
 	}
-	mlx_destroy_window(fractol->mlx, fractol->window);
-	mlx_destroy_display(fractol->mlx);
-	free(fractol);
-	free(fractol->mlx);
-	exit (0);
+	if (info()->win_ptr)
+	{
+		mlx_destroy_window(info()->mlx_ptr, info()->win_ptr);
+		info()->win_ptr = NULL;
+	}
+	if (info()->mlx_ptr)
+	{
+		mlx_destroy_display(info()->mlx_ptr);
+		info()->mlx_ptr = NULL;
+	}
+	exit(EXIT_SUCCESS);
+	return (0);
 }

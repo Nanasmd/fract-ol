@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:19:38 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/01 12:46:28 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:49:06 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ t_image	*init_image(void *mlx)
 			&(image->size_line),
 			&(image->endian));
 	return (image);
+}
+
+void	free_image(t_image *image)
+{
+	if (!image)
+		return ;
+	if (image->image)
+	free(image);
 }
 
 t_complex	init_complex(double re, double im)
