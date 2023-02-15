@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:19:38 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/11 20:49:06 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:27:53 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	free_image(t_image *image)
 	if (!image)
 		return ;
 	if (image->image)
-	free(image);
+		free(image);
 }
 
 t_complex	init_complex(double re, double im)

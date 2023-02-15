@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:20:15 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/11 19:05:15 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:44:25 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void	move(int key, t_fractol *fractol)
 {
 	t_complex	delta;
 
-	delta = init_complex(FT_ABS(fractol->max.re - fractol->min.re),
-			FT_ABS(fractol->max.im - fractol->min.im));
+	delta = init_complex(fabs(fractol->max.re - fractol->min.re),
+			fabs(fractol->max.im - fractol->min.im));
 	if (key == ARROW_LEFT)
 	{
 		fractol->min.re -= delta.re * 0.05;
