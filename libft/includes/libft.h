@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:18:24 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/07 16:01:20 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:58:30 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <inttypes.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <math.h>
 
-# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
+/*# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
 # define FT_MAX(A, B) (((A) > (B)) ? (A) : (B))
 
 # define FT_ABS(X) (((X) < 0) ? (-(X)) : (X))
@@ -36,15 +37,19 @@
 # define FT_CHAR_MAX	((char)(FT_UCHAR_MAX >> 1))
 # define FT_CHAR_MIN	((char)(~FT_CHAR_MAX))
 
-/*# define FT_ULONG_MAX_HALF	(~0UL >> 1)
+# define FT_MIN(A, B) (((A) < (B)) * (A) + ((A) >= (B)) * (B))
+# define FT_MAX(A, B) (((A) > (B)) * (A) + ((A) <= (B)) * (B))
+# define FT_ABS(X) (((X) + ((X) >> 31)) ^ ((X) >> 31))
+
+# define FT_ULONG_MAX_HALF	((~0UL) >> 1)
 # define FT_LONG_MAX		FT_ULONG_MAX_HALF
 # define FT_LONG_MIN		(~FT_LONG_MAX)
 
-# define FT_UINT_MAX_HALF	(~0U >> 1)
+# define FT_UINT_MAX_HALF	((~0U) >> 1)
 # define FT_INT_MAX			FT_UINT_MAX_HALF
 # define FT_INT_MIN			(~FT_INT_MAX)
 
-# define FT_UCHAR_MAX_HALF	(~0U >> 1)
+# define FT_UCHAR_MAX_HALF	((~0U) >> 1)
 # define FT_CHAR_MAX		FT_UCHAR_MAX_HALF
 # define FT_CHAR_MIN		(~FT_CHAR_MAX)*/
 
@@ -60,6 +65,10 @@ typedef struct s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+int					ft_min(int v1, int v2);
+
+int					ft_abs(int v1);
 
 void				*ft_memset(void *b, int c, size_t len);
 

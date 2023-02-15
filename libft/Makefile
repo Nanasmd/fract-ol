@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 15:39:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/02/06 15:01:30 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/02/15 16:57:32 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SOURCES_LIST = \
 	ft_memccpy.c\
 	ft_memmove.c\
 	ft_memchr.c\
+	ft_min.c\
 	ft_memcmp.c\
 	ft_strlen.c\
 	ft_strdup.c\

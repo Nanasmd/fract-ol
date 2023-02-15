@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi32.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:48:54 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/01 17:18:31 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:58:42 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int32_t	ft_atoi32(const char *str)
 	int				sign;
 
 	result = 0;
-	border = (unsigned long)(FT_LONG_MAX / 10);
+	border = (unsigned long)(LONG_MAX / 10);
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:50:47 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/01 16:28:45 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:59:55 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_bool	ft_check_int(const char *str, int *i, int *sign)
 	int					digits;
 
 	result = 0;
-	border = (unsigned int)(FT_INT_MAX / 10);
+	border = (unsigned int)(INT_MAX / 10);
 	digits = 0;
 	ft_check_sign(str, i, sign);
 	while (ft_isdigit(str[*i]))

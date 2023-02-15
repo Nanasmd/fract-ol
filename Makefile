@@ -6,7 +6,7 @@
 #    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 15:50:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/02/10 11:25:13 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/02/15 15:49:56 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SRC			=	\
 					controls_mouse.c\
 					controls_utils.c\
 					print.c\
-					utils.c
+					init_fractol.c
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
 # Objects

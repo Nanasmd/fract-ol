@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 13:13:22 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/15 16:57:23 by nasamadi         ###   ########.fr       */
+/*   Created: 2023/02/15 16:56:34 by nasamadi          #+#    #+#             */
+/*   Updated: 2023/02/15 17:50:09 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_min(int v1, int v2)
 {
-	size_t	dst_len;
-	size_t	result_len;
+	if (v1 > v2)
+		return (v1);
+	return (v2);
+}
 
-	dst_len = ft_strlen(dst);
-	result_len = ft_min(dstsize, dst_len) + ft_strlen(src);
-	if (dstsize > dst_len)
-	{
-		dst += dst_len;
-		dstsize -= dst_len;
-		while (*src && dstsize-- > 1)
-			*dst++ = *src++;
-		*dst = '\0';
-	}
-	return (result_len);
+int	ft_abs(int v1)
+{
+	if (v1 < 0)
+		return (v1 * -1);
+	return (v1);
 }

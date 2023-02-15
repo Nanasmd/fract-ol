@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:03:44 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/11 17:51:05 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:25:16 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,6 @@ typedef struct s_formula
 /*
 ** Init
 */
-
 t_image				*init_image(void *mlx);
 
 t_complex			init_complex(double re, double im);
@@ -146,6 +145,7 @@ t_complex			init_complex(double re, double im);
 void				set_defaults(t_fractol *fractol);
 
 void				free_image(t_image *image);
+int					(*get_formula(char *name)) (t_fractol *fractol);
 
 /*
 ** Draw
@@ -205,7 +205,7 @@ int					julia_motion(int x, int y, t_fractol *fractol);
 
 void			init_window_hooks(t_fractol *fractol, char *name);
 
-void			free_fractols(int number, t_fractol **fractols);
+void			free_fractol(t_fractol *fractol);
 
 /*
 ** Print
@@ -214,8 +214,14 @@ void			free_fractols(int number, t_fractol **fractols);
 void				print_help(void);
 
 /*
-** Utils
+** Init Fractol
 */
+
+//static void		init_fractol_data(t_fractol *fractol, char *name, void *mlx);
+
+//static void		init_fractol_hooks(t_fractol *fractol, char *name);
+
+t_fractol	*init_fractol(char *name, void *mlx);
 
 void				terminate(char *s);
 
