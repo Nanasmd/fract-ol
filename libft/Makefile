@@ -6,7 +6,7 @@
 #    By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 15:39:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/02/15 16:57:32 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/02/22 14:04:02 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = \
 	ft_memset.c\
+	ft_atof.c\
 	ft_bzero.c\
 	ft_memcpy.c\
 	ft_memccpy.c\
