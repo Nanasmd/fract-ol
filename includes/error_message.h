@@ -6,7 +6,7 @@
 /*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:03:10 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/01/20 17:03:12 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/23 22:05:56 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define ERROR_MESSAGE_H
 
+# define ERR_INVALID_FORM	"ERROR: Invalid formula name"
 # define ERR_FRACTOL_INIT	"ERROR: Can\'t initialize fractol"
 # define ERR_WINDOW_INIT	"ERROR: Can\'t initialize window"
 # define ERR_IMAGE_INIT		"ERROR: Can\'t initialize image"

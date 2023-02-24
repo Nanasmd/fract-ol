@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:25:10 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/15 17:25:00 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:36:27 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include "../includes/error_message.h"
 #include "../libft/includes/libft.h"
 #include "../minilibx-linux/mlx.h"
+#include <stdlib.h>
 
-int	(*get_formula(char *name)) (t_fractol *fractol)
+int	(*get_formula(char *name))(t_fractol *fractol)
 {
 	size_t				i;
 	int					(*formula)(t_fractol *fractol);
@@ -42,44 +43,6 @@ int	(*get_formula(char *name)) (t_fractol *fractol)
 	}
 	return (formula);
 }
-
-/*static t_fractol	*init_fractol(char *name, void *mlx)
-{
-	t_fractol	*fractol;
-
-	fractol = (t_fractol *)ft_memalloc(sizeof(t_fractol));
-	if (!fractol)
-		terminate(ERR_FRACTOL_INIT);
-	fractol->mlx = mlx;
-	fractol->window = mlx_new_window(mlx, WIDTH, HEIGHT, name);
-	if (!fractol->window)
-	{
-		free_fractol(fractol);
-		terminate(ERR_WINDOW_INIT);
-	}
-	fractol->image = init_image(mlx);
-	if (!fractol->image)
-	{
-		free_fractol(fractol);
-		terminate(ERR_IMAGE_INIT);
-	}
-	set_defaults(fractol);
-	fractol->is_julia_fixed = true;
-	fractol->formula = get_formula(name);
-	if (!fractol->formula)
-	{
-		free_fractol(fractol);
-		terminate(ERR_FRACTAL_NAME);
-	}
-	fractol->is_help = false;
-	mlx_hook(fractol->window, 2, 0, key_press, fractol);
-	mlx_key_hook(fractol->window, key_press, fractol);
-	mlx_hook(fractol->window, 17, 0, ft_close_win, fractol);
-	mlx_mouse_hook(fractol->window, zoom, fractol);
-	if (ft_strequ(name, "Julia"))
-		mlx_hook(fractol->window, 6, 0, julia_motion, fractol);
-	return (fractol);
-}*/
 
 void	free_fractol(t_fractol *fractol)
 {
@@ -118,11 +81,38 @@ static void	start(int number, char **names)
 	free(mlx);
 }
 
+static void	startjul(int number, char **names)
+{
+	t_fractol	*fractols[10];
+	void		*mlx;
+	int			i;
+
+	i = 0;
+	mlx = mlx_init();
+	fractols[i] = init_fractol(names[i], mlx);
+	if (get_julia_starting_values(fractols[i], number, names))
+	{	
+		draw_fractal(fractols[i]);
+		mlx_loop(mlx);
+	}
+	free_fractol(fractols[i]);
+	mlx_destroy_display(mlx);
+	free(mlx);
+}
+
 int	main(int argc, char **argv)
 {
 	int	i;
 
-	if (argc >= 2 && argc <= 11)
+	if (ft_strequ(argv[1], "Julia"))
+	{
+		if (argc != 2 && argc != 4)
+			return (print_help(), 0);
+		else if (!get_formula(argv[1]))
+			print_help();
+		startjul(argc - 1, &argv[1]);
+	}
+	else if (argc >= 2 && argc <= 11)
 	{
 		i = 1;
 		while (i < argc)

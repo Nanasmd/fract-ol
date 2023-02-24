@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:20:15 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/15 16:44:25 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/21 15:21:30 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,38 +51,25 @@ static void	move(int key, t_fractol *fractol)
 	draw_fractal(fractol);
 }
 
-static void	change_max_iteration(int key, t_fractol *fractol)
-{
-	if (key == MAIN_PAD_PLUS || key == NUM_PAD_PLUS)
-	{
-		if (fractol->max_iteration < 50)
-			fractol->max_iteration += 1;
-		else if (fractol->max_iteration < 1000000000)
-			fractol->max_iteration = (int)(fractol->max_iteration * 1.05);
-	}
-	else if (key == MAIN_PAD_MINUS || key == NUM_PAD_MINUS)
-	{
-		if (fractol->max_iteration > 50)
-			fractol->max_iteration = (int)(fractol->max_iteration * 0.95);
-		else if (fractol->max_iteration > 1)
-			fractol->max_iteration -= 1;
-	}
-	draw_fractal(fractol);
-}
-
 static void	change_color_shift(t_fractol *fractol)
 {
 	fractol->color_shift = (fractol->color_shift + 1) % 3;
 	draw_fractal(fractol);
 }
 
-int	key_press(int key, t_fractol *fractol)
+int	key_press_help(int key, t_fractol *fractol)
 {
 	if (key == MAIN_PAD_ESC)
 		mlx_loop_end(fractol->mlx);
 	else if (key == MAIN_PAD_H)
 		help(fractol);
-	else if (!fractol->is_help)
+	return (0);
+}
+
+int	key_press(int key, t_fractol *fractol)
+{
+	key_press_help(key, fractol);
+	if (!fractol->is_help)
 	{
 		if (key == MAIN_PAD_R)
 		{
@@ -97,8 +84,11 @@ int	key_press(int key, t_fractol *fractol)
 			move(key, fractol);
 		else if (key == MAIN_PAD_C)
 			change_color_shift(fractol);
-		else if (key == 32)
+		else if (key == MAIN_PAD_SPACE)
 			fractol->is_julia_fixed = !fractol->is_julia_fixed;
+		else if (!fractol->is_julia_fixed && (key == ARROW_LEFT
+				|| key == ARROW_RIGHT || key == ARROW_UP || key == ARROW_DOWN))
+			move(key, fractol);
 	}
 	return (0);
 }

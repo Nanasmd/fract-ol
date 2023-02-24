@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_julia.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:21:39 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/01 14:03:21 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:00:22 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,33 @@ int	iterate_julia(t_fractol *fractol)
 		iteration++;
 	}
 	return (iteration);
+}
+
+t_bool	is_julia_fixed(t_fractol *fractol)
+{
+	if (fractol)
+		return (fractol->is_julia_fixed);
+	return (false);
+}
+
+void	toggle_julia_fixed(t_fractol *fractol)
+{
+	fractol->is_julia_fixed = !fractol->is_julia_fixed;
+	if (fractol->is_julia_fixed)
+		fractol->k = init_complex(-0.4, 0.6);
+}
+
+void	update_julia_k(int x, int y, t_fractol *fractol)
+{
+	double	re;
+	double	im;
+
+	if (!fractol->is_julia_fixed)
+	{
+		re = (x - WIDTH / 2.0) * 4.0 / WIDTH;
+		im = (y - HEIGHT / 2.0) * 4.0 / WIDTH;
+		fractol->k = init_complex(re, im);
+		draw_fractal(fractol);
+		draw_fractal(fractol);
+	}
 }

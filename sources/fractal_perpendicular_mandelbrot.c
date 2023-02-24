@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_perpendicular_mandelbrot.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:25:01 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/01 14:05:54 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:12:03 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_perpendicular_burning_ship.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:24:52 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/01 14:05:26 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:12:04 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

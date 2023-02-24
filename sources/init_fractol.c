@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:25:41 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/15 17:51:02 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:29:15 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ static void	init_fractol_data(t_fractol *fractol, char *name, void *mlx)
 
 static void	init_fractol_hooks(t_fractol *fractol, char *name)
 {
+	(void)name;
 	mlx_hook(fractol->window, 2, 0, key_press, fractol);
 	mlx_key_hook(fractol->window, key_press, fractol);
 	mlx_hook(fractol->window, 17, 0, ft_close_win, fractol);
-	mlx_mouse_hook(fractol->window, zoom, fractol);
-	if (ft_strequ(name, "Julia"))
-		mlx_hook(fractol->window, 6, 0, julia_motion, fractol);
+	mlx_hook(fractol->window, MotionNotify, PointerMotionMask,
+		julia_motion, fractol);
+	mlx_hook(fractol->window, ButtonPress, ButtonPressMask, zoom, fractol);
 }
 
 t_fractol	*init_fractol(char *name, void *mlx)

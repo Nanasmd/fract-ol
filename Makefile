@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nasamadi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 15:50:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/02/15 15:49:56 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/02/24 06:31:46 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= fractol
 
 # Compiler
 CC		= gcc
-CFLAGS	= -Werror -Wextra -Wall -g3
+CFLAGS	= -Werror -Wextra -Wall -O2 -O3 -march=native -funroll-loops -ffast-math
 
 # Minilibx
 MLX_PATH	= ./minilibx-linux/
@@ -63,14 +63,13 @@ OBJS		= $(addprefix $(OBJ_PATH), $(OBJ))
 all: $(MLX) $(LIBFT) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(OBJS): $(OBJ_PATH)
 
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
-	@mkdir $(OBJ_PATH)fractal_sets/
-	@mkdir $(OBJ_PATH)color_schemes/
 
 $(MLX):
 	@echo "Making MiniLibX..."
@@ -108,4 +107,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus norm re clean fclean
+.PHONY: all bonus norm clean fclean re

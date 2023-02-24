@@ -6,7 +6,7 @@
 /*   By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:03:44 by nasamadi          #+#    #+#             */
-/*   Updated: 2023/02/15 17:25:16 by nasamadi         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:29:38 by nasamadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 */
 
 /*
-** channel — alpha, red, green, blue color channels
+** channel — un tableau de 4 octets, 
+** représentant les canaux de couleur alpha, rouge, vert et bleu d'une couleur
 */
 
 typedef struct s_color
@@ -44,8 +45,8 @@ typedef struct s_color
 */
 
 /*
-** re — real part
-** im — imaginary part
+** re — reel 
+** im — imaginaire
 */
 
 typedef struct s_complex
@@ -59,11 +60,11 @@ typedef struct s_complex
 */
 
 /*
-** image          — image identifier
-** data_addr      — image
-** bits_per_pixel — depth of image
-** size_line      — number of bytes used to store one line of image
-** endian         — little or big endian
+** image          — pointeur sur image
+** data_addr      — pointeur sur donnees
+** bits_per_pixel — profondeur de couleur (nombre de bits par pixel)
+** size_line      — taille d'une ligne de pixels
+** endian         — endian (ordre de stockage des octets) de l'image
 */
 
 typedef struct s_image
@@ -79,23 +80,21 @@ typedef struct s_image
 ** Fract'ol
 */
 
-/*
-** mlx            — connection identifier
-** window         — window identifier
-** image          — information about image
-** max_iteration  — maximum iteration
-** min            — minimum real and imaginary parts of complex numbers
-** max            — maximum real and imaginary parts of complex numbers
-** factor         — dependency between complex numbers and pixels
-** c              — complex number
-** k              — constant complex number (only for Julia)
-** is_julia_fixed — flag that reports Julia is fixed or is not
-** start_line     — start line of fractal part (needed for multi-threading)
-** finish_line    — finish line of fractal part (needed for multi-threading)
-** color_shift    — shift of color channels
-** formula        — fractal formula
-** is_help        — flag that reports help screen is displayed or is not
-*/
+/* mlx            — connection MiniLibX*/
+/* window         — fenêtre MiniLibX*/
+/* image          — image MiniLibX*/
+/* max_iteration  — nombre maximum d'itérations*/
+/* min            — parties ré et im min d'un ensemble*/
+/* max            — parties ré et im max d'un ensemble*/
+/* factor         — facteur qui relie les nbr complexes aux pixels de l'image*/
+/* c              — nombre complexe "c" (pour les fractales de Mandelbrot)*/
+/* k              — nombre complexe "k" (pour les fractales de Julia)*/
+/* is_julia_fixed — indicateur booléen si le nombre complexe "k" est fixé*/
+/* start_line     — début des thread  (multi-threading)*/
+/* finish_line    — la fin des thread (multi-threading)*/
+/* color_shift    — changement de couleurs*/
+/* formula        — formule fractale*/
+/* is_help        — indicateur booléen si l'aide à l'écran est affichée*/
 
 typedef struct s_fractol
 {
@@ -121,8 +120,10 @@ typedef struct s_fractol
 */
 
 /*
-** name    — name of fractal
-** formula — formula of fractal
+** name    — nom de la fractale
+** formula — fonction de la fractale
+** pour stocker toutes les formules disponibles 
+** et sélectionner la formule appropriée pour dessiner une fractale spécifique
 */
 
 typedef struct s_formula
@@ -145,7 +146,8 @@ t_complex			init_complex(double re, double im);
 void				set_defaults(t_fractol *fractol);
 
 void				free_image(t_image *image);
-int					(*get_formula(char *name)) (t_fractol *fractol);
+
+int					(*get_formula(char *name))(t_fractol *fractol);
 
 /*
 ** Draw
@@ -162,6 +164,17 @@ void				draw_help(t_fractol *fractol);
 int					iterate_mandelbrot(t_fractol *fractol);
 
 int					iterate_julia(t_fractol *fractol);
+
+void				toggle_julia_fixed(t_fractol *fractol);
+
+int					get_julia_starting_values(t_fractol *fractol,
+						int argc, char **argv);
+
+void				handle_args(t_fractol *fractol, int argc, char **argv);
+
+void				update_julia_k(int x, int y, t_fractol *fractol);
+
+t_bool				is_julia_set(t_fractol *fractol);
 
 int					iterate_burning_ship(t_fractol *fractol);
 
@@ -191,11 +204,15 @@ t_color				get_color(int iteration, t_fractol *fractol);
 
 int					ft_close_win(t_fractol *fractol);
 
+int					key_press_help(int key, t_fractol *fractol);
+
 int					key_press(int key, t_fractol *fractol);
+
+int					change_max_iteration(int key, t_fractol *fractol);
 
 int					zoom(int button, int x, int y, t_fractol *fractol);
 
-//int					change_max_iteration(int key, t_fractol *fractol);
+void				handle_key(int key, t_fractol *fractol);
 
 int					julia_motion(int x, int y, t_fractol *fractol);
 
@@ -203,9 +220,9 @@ int					julia_motion(int x, int y, t_fractol *fractol);
 ** Free
 */
 
-void			init_window_hooks(t_fractol *fractol, char *name);
+void				init_window_hooks(t_fractol *fractol, char *name);
 
-void			free_fractol(t_fractol *fractol);
+void				free_fractol(t_fractol *fractol);
 
 /*
 ** Print
@@ -217,11 +234,7 @@ void				print_help(void);
 ** Init Fractol
 */
 
-//static void		init_fractol_data(t_fractol *fractol, char *name, void *mlx);
-
-//static void		init_fractol_hooks(t_fractol *fractol, char *name);
-
-t_fractol	*init_fractol(char *name, void *mlx);
+t_fractol			*init_fractol(char *name, void *mlx);
 
 void				terminate(char *s);
 
