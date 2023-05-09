@@ -6,7 +6,7 @@
 #    By: nasamadi <nasamadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/25 15:50:29 by nasamadi          #+#    #+#              #
-#    Updated: 2023/02/24 06:31:46 by nasamadi         ###   ########.fr        #
+#    Updated: 2023/04/04 14:27:59 by nasamadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= fractol
 
 # Compiler
 CC		= gcc
-CFLAGS	= -Werror -Wextra -Wall -O2 -O3 -march=native -funroll-loops -ffast-math
+CFLAGS	= -Werror -Wextra -Wall -O2 -O3 -march=native -funroll-loops -ffast-math -fomit-frame-pointer
 
 # Minilibx
 MLX_PATH	= ./minilibx-linux/
